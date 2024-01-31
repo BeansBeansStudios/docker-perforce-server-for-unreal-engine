@@ -25,6 +25,12 @@ ENV PUBLIC_SSH_KEY=$PUBLIC_SSH_KEY
 
 EXPOSE 22
 
+# install prereqs
+RUN apt-get update && apt-get install -y --no-install-recommends \
+		vim \
+		curl \
+	&& rm -Rf /var/lib/apt/lists/*
+
 # perforce
 
 EXPOSE 1666
